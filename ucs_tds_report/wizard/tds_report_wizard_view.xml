@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tds_report_wizard_form" model="ir.ui.view">
+        <field name="name">tds.report.wizard.form</field>
+        <field name="model">tds.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate TDS Report">
+                <sheet>
+                    <group>
+                        <group string="Period">
+                            <field name="date_from" placeholder="From Date"/>
+                            <field name="date_to" placeholder="To Date"/>
+                        </group>
+                        <group string="Filters">
+                            <field name="tds_account_ids" widget="many2many_tags" placeholder="Select TDS/TCS Accounts..."/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Generate Report" type="object" name="action_generate_excel_report" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tds_report_wizard" model="ir.actions.act_window">
+        <field name="name">TDS Report</field>
+        <field name="res_model">tds.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu Item under Accounting > Reporting -->
+    <menuitem id="menu_tds_report_wizard"
+              name="TDS Report"
+              parent="account.menu_finance_reports"
+              action="action_tds_report_wizard"
+              groups="ucs_tds_report.group_tds_report"
+              sequence="120"/>
+</odoo>
