@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'UCS TDS Report',
+    'name': 'TDS Report | Tax Deducted at Source Report | TDS Summary Report | TDS Deduction Report | TDS Tax Report | TDS Transaction Report | TDS Statement',
     'version': '19.0.1.0.0',
     'summary': 'TDS Transaction Report Generator in Excel',
     'description': """
@@ -17,7 +17,7 @@
     'images': ["static/description/banner.gif"],
     'installable': True,
     'application': False,
-    'license': 'LGPL-3',
+    'license': 'Other proprietary',
     'price': 50,
     'currency': 'USD',
 }
