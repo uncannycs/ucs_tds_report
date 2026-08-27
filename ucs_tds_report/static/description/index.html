@@ -2005,13 +2005,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseOne" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            1. Where can I access the TDS Report?
+                                            1. Why should we use this TDS Report module over standard Odoo accounting reports?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingOne" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseOne">
                                         <div class="accordion-body text-muted">
-                                            Go to Accounting &rarr; Reporting &rarr; TDS Report.
+                                            Standard Odoo accounting reports do not provide out-of-the-box compliance tracking for Indian Tax Deducted at Source (TDS) and Tax Collected at Source (TCS). This module bridges that gap by automatically categorizing posted journal entries into statutory tax sections (e.g., 194C, 194J, 194H, 194Q, 206C), aggregating base invoice values and tax amounts, pulling partner PAN numbers, and generating audit-ready multi-tab Excel workbooks customized for quarterly Form 26Q and 27EQ e-filing.
                                         </div>
                                     </div>
                                 </div>
@@ -2023,13 +2023,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseTwo" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            2. Can I select multiple TDS accounts?
+                                            2. How does the module extract statutory Indian TDS tax sections automatically?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingTwo" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseTwo">
                                         <div class="accordion-body text-muted">
-                                            Yes. The wizard supports selecting multiple TDS/TCS accounts before generating the report.
+                                            The module uses an intelligent Regular Expression (Regex) parser that scans journal line descriptions, tax record titles, and account names of posted accounting entries. When it detects standard section identifiers (e.g., "194C - Contractors", "194J - Professional Fees", "194Q - Purchase of Goods"), it automatically maps the line to the corresponding statutory section without requiring tedious manual tag entry on individual vendor bills.
                                         </div>
                                     </div>
                                 </div>
@@ -2041,13 +2041,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseThree" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            3. Can I define a specific reporting period?
+                                            3. Can I select multiple TDS and TCS liability accounts simultaneously?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingThree" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseThree">
                                         <div class="accordion-body text-muted">
-                                            Yes. You can specify both Start Date and End Date.
+                                            Yes! The wizard menu (<b>Accounting &gt; Reporting &gt; TDS Report</b>) features a flexible multi-select account field. You can select specific TDS vendor deduction accounts, TCS customer collection accounts, or run a comprehensive report across all tax withholding liability accounts defined in your Chart of Accounts simultaneously.
                                         </div>
                                     </div>
                                 </div>
@@ -2059,13 +2059,15 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseFour" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            4. What accounting entries are included?
+                                            4. Does the generated Excel workbook separate data into monthly worksheets?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingFour" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseFour">
                                         <div class="accordion-body text-muted">
-                                            Only posted journal entries matching the selected accounts and date range are included.
+                                            Yes! The exported Excel (.xlsx) file is structured for maximum clarity and compliance:<br/>
+                                            • <b>Summary Sheet:</b> Presents consolidated section-wise totals, overall base amounts, total tax withheld, and partner count.<br/>
+                                            • <b>Monthly Sheets:</b> Automatically creates separate tab sheets for each month within your selected date range (e.g., April 2026, May 2026, June 2026), complete with monthly partner sub-totals.
                                         </div>
                                     </div>
                                 </div>
@@ -2077,13 +2079,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseFive" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            5. What information is available in the generated report?
+                                            5. Where are customer and vendor PAN numbers pulled from for compliance?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingFive" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseFive">
                                         <div class="accordion-body text-muted">
-                                            The report includes date, entry number, TDS section, partner, TDS account, base amount, TDS amount, and PAN number.
+                                            PAN numbers are dynamically fetched from the <code>pan_no</code> or <code>vat</code> field on the associated <code>res.partner</code> master record of each transaction line. If a partner record lacks a registered PAN, the report clearly highlights the cell with <i>"PAN NOT AVAILABLE"</i>, allowing your finance team to identify missing tax details prior to filing quarterly returns.
                                         </div>
                                     </div>
                                 </div>
@@ -2095,13 +2097,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseSix" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            6. Does the report provide monthly details?
+                                            6. Can we customize the date range for quarterly, monthly, or annual reporting?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingSix" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseSix">
                                         <div class="accordion-body text-muted">
-                                            Yes. Transactions are automatically separated into individual monthly worksheets.
+                                            Absolutely. The reporting wizard allows you to define custom <b>Start Date</b> and <b>End Date</b> filters. You can generate reports for a single calendar month, a tax quarter (Q1: Apr-Jun, Q2: Jul-Sep, Q3: Oct-Dec, Q4: Jan-Mar), or the entire Indian Financial Year (Apr 1 to Mar 31) effortlessly.
                                         </div>
                                     </div>
                                 </div>
@@ -2113,13 +2115,13 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseSeven" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            7. What happens if no matching transactions are found?
+                                            7. What happens if no posted journal entries match the selected filters?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingSeven" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseSeven">
                                         <div class="accordion-body text-muted">
-                                            The system displays a message indicating that no posted journal entries were found for the selected period and accounts.
+                                            If no posted accounting entries match your selected date range and tax accounts, the wizard gracefully handles the scenario by displaying a clear Odoo warning notification (<i>"No posted journal entries found for the selected period and accounts"</i>). This prevents the generation of empty or corrupted Excel downloads.
                                         </div>
                                     </div>
                                 </div>
@@ -2131,13 +2133,141 @@
                                             class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
                                             data-bs-target="#collapseEight" data-bs-toggle="collapse"
                                             style="background-color: #f8f9fa">
-                                            8. What output format does the module generate?
+                                            8. Does this module require changes to our existing chart of accounts?
                                         </div>
                                     </h2>
                                     <div aria-labelledby="headingEight" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion" id="collapseEight">
                                         <div class="accordion-body text-muted">
-                                            The module generates a formatted Excel (XLSX) report containing summary and detailed transaction sheets.
+                                            No configuration overhaul is required! The module works out-of-the-box with your existing Odoo Accounting setup. It inspects standard posted <code>account.move.line</code> entries across your existing journals and tax accounts without requiring custom database schema changes or account re-mapping.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 9 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingNine"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseNine" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseNine" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            9. Are unposted or draft journal entries included in TDS calculations?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingNine" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseNine">
+                                        <div class="accordion-body text-muted">
+                                            No. To enforce strict financial compliance and prevent inaccurate reporting from unapproved transactions, the report engine strictly filters for posted entries (<code>state = 'posted'</code>). Draft, cancelled, or unposted journal vouchers are completely excluded from calculations.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 10 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingTen"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseTen" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseTen" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            10. How are multi-currency transactions calculated in the TDS report?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingTen" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseTen">
+                                        <div class="accordion-body text-muted">
+                                            For vendor bills or customer invoices processed in foreign currencies (USD, EUR, GBP, etc.), the module automatically converts all base invoice amounts and tax values into your company’s functional currency (INR). It utilizes the official historical exchange rate recorded on the date of journal entry posting for 100% currency accuracy.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 11 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingEleven"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseEleven" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseEleven" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            11. Does the report support both Tax Deducted at Source (TDS) and Tax Collected at Source (TCS)?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingEleven" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseEleven">
+                                        <div class="accordion-body text-muted">
+                                            Yes! The module handles both sides of Indian statutory tax withholding:<br/>
+                                            • <b>TDS (Section 194 series):</b> Tracks tax deducted on vendor payments and expense bills.<br/>
+                                            • <b>TCS (Section 206C series):</b> Tracks tax collected from customers on sales invoices (e.g., sale of scrap, timber, or high-value goods).
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 12 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingTwelve"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseTwelve" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseTwelve" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            12. How are invoice base amounts and tax amounts broken down in the Excel sheet?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingTwelve" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseTwelve">
+                                        <div class="accordion-body text-muted">
+                                            Each row in the detailed monthly worksheets provides an itemized breakdown including: Posting Date, Journal Entry Reference, Vendor / Customer Name, PAN Number, Tax Account &amp; Extracted TDS Section, Gross Base Amount (Before Tax), Applied Tax Percentage (%), Tax Amount Deducted / Collected, and Net Payable / Receivable Balance.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 13 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingThirteen"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseThirteen" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseThirteen" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            13. Is the exported Excel file compatible with statutory tax filing tools?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingThirteen" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseThirteen">
+                                        <div class="accordion-body text-muted">
+                                            Yes. The generated Excel workbook is formatted to align directly with Indian Income Tax Department (ITD) e-filing software and NSDL return preparation utilities. You can copy-paste or import data directly into government offline utilities for Form 26Q and Form 27EQ preparation.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 14 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingFourteen"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseFourteen" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseFourteen" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            14. Can accounting managers restrict access to TDS report generation?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingFourteen" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseFourteen">
+                                        <div class="accordion-body text-muted">
+                                            Yes. Access to the TDS Report wizard under <b>Accounting &gt; Reporting</b> is strictly controlled by standard Odoo security groups. Only users granted <b>Advisor / Accounting Manager</b> or <b>Billing</b> security roles can execute the report wizard and download financial tax exports.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ 15 -->
+                                <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                                    <h2 class="accordion-header" id="headingFifteen"
+                                        style="font-family: 'Montserrat', sans-serif">
+                                        <div aria-controls="collapseFifteen" aria-expanded="false"
+                                            class="accordion-button rounded-4 fw-bold text-dark collapsed cursor-pointer"
+                                            data-bs-target="#collapseFifteen" data-bs-toggle="collapse"
+                                            style="background-color: #f8f9fa">
+                                            15. Are partner-level sub-totals and grand totals included in the Excel export?
+                                        </div>
+                                    </h2>
+                                    <div aria-labelledby="headingFifteen" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqAccordion" id="collapseFifteen">
+                                        <div class="accordion-body text-muted">
+                                            Yes! Every monthly worksheet includes automated, formula-driven sub-totals grouped by partner and tax section, as well as a formatted grand total row at the bottom of each tab sheet. This allows accountants to instantly reconcile report outputs against trial balances and ledger accounts.
                                         </div>
                                     </div>
                                 </div>
